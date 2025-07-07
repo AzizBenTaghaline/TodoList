@@ -5,50 +5,37 @@ import './App.css'
 import ToDo from './ToDo'
 import Joke from "./Joke"
 import todosData from './todosData'
-/*
-interface TodoItem {
-  id:number;
-  text: string;
-  completed: boolean;
-}
 
-interface AppState {
-  todos: TodoItem[];
-}
-*/
 class App extends React.Component{
   constructor(){
     super();
     this.state={
     todos:todosData
     };
+    this.handleChange=this.handleChange.bind(this);
   };
   
+  handleChange(id){
+    this.setState(prevState=>{
+      const newList=prevState.todos.map(todo=>{
+        if(todo.id===id)
+          return { ...todo, completed: !todo.completed };
+        return todo
+      })
+      return {
+        todos:newList
+      }
+    })
+  }
+
   render(){
-     const todoComponents=this.state.todos.map(item => <ToDo key={item.id} item={item}/>)
+     const todoComponents=this.state.todos.map(item => <ToDo key={item.id} item={item} handleChange={this.handleChange} />)
      return (
   <div className="list"> 
    {todoComponents}
   </div> )
 }
 }
-
-/*class App extends Component<{}, AppState> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      todos: todosData
-    };
-  }
-
-  render() {
-    const todoComponents = this.state.todos.map((item) => (
-      <ToDo key={item.id} item={item} />
-    ));
-
-    return <div className="list">{todoComponents}</div>;
-  }
-}*/
 
 export default App;
 /*
