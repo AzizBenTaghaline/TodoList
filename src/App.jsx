@@ -1,9 +1,6 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import React from 'react'
 import ToDo from './ToDo'
-import LogIn from './LoggedIn'
-import Joke from "./Joke"
 import todosData from './todosData'
 
 class App extends React.Component{
@@ -37,38 +34,3 @@ class App extends React.Component{
 }
 }
 export default App;
-/*
-constructor(){
-  super()
-  this.state={
-    isLoggedIn:true
-  }
-this.handleClick=this.handleClick.bind(this)}
-
-handleClick(){
-    this.setState(prevState=>{
-      return{
-      isLoggedIn:!prevState.isLoggedIn}}
-    )
-  }
-  render(){
-    return(
-
-    <LogIn handleClick={this.handleClick} isLoggedIn={this.state.isLoggedIn}/>
-    )
-  }}*/
-/*
- function App() {
-  return (
-  <div className="list">
-    <Joke 
-    joke={{question:"Why don’t skeletons fight each other?",punchline:"Because they don’t have the guts."}}/>
-    <Joke
-    joke={{question:"Why don’t skeletons fight each other?",punchline:"Because they don’t have the guts."}} />
-    <Joke
-    joke={{question:"Why don’t skeletons fight each other?",punchline:"Because they don’t have the guts."}} />
-  </div>
-  )
-}
-
-export default App*/
