@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import React from 'react'
-import './App.css'
 import ToDo from './ToDo'
+import LogIn from './LoggedIn'
 import Joke from "./Joke"
 import todosData from './todosData'
 
 class App extends React.Component{
-  constructor(){
+   constructor(){
     super();
     this.state={
     todos:todosData
@@ -30,14 +30,33 @@ class App extends React.Component{
 
   render(){
      const todoComponents=this.state.todos.map(item => <ToDo key={item.id} item={item} handleChange={this.handleChange} />)
-     return (
+  return (
   <div className="list"> 
    {todoComponents}
   </div> )
 }
 }
-
 export default App;
+/*
+constructor(){
+  super()
+  this.state={
+    isLoggedIn:true
+  }
+this.handleClick=this.handleClick.bind(this)}
+
+handleClick(){
+    this.setState(prevState=>{
+      return{
+      isLoggedIn:!prevState.isLoggedIn}}
+    )
+  }
+  render(){
+    return(
+
+    <LogIn handleClick={this.handleClick} isLoggedIn={this.state.isLoggedIn}/>
+    )
+  }}*/
 /*
  function App() {
   return (
